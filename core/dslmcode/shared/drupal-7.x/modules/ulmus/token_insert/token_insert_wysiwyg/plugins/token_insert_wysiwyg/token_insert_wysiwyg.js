@@ -2,9 +2,9 @@
 /*global Drupal:true, jQuery: true*/
 (function ($, Drupal) {
   "use strict";
-  function hideShowFieldset(buttonid, action) {
-    var $fieldset = $('#' + buttonid).closest('fieldset');
-    $fieldset[action]();
+  function hideShowTable(tableid, action) {
+    var $table = $('#' + tableid);
+    $table[action]();
   }
 
   var dialogs = {};
@@ -61,7 +61,14 @@
     },
 
     insertIntoEditor: function (token, editor_id) {
-      Drupal.wysiwyg.instances[editor_id].insert(token);
+      $.post(Drupal.settings.basePath + 'token_replace/ajax/' + token, $('form'), function (result) {
+        if (token == result.token) {
+          token = result.value;
+        }
+      }, 'json')
+      .always(function() {
+        Drupal.wysiwyg.instances[editor_id].insert(token);
+      });
     },
 
     /**
@@ -82,9 +89,9 @@
       // token_insert_test won't work then, users should use the
       // wysiwyg plugin instead.
       if (typeof Drupal.settings.token_insert !== 'undefined') {
-        for (var index in Drupal.settings.token_insert.buttons) {
-          if (Drupal.settings.token_insert.buttons.hasOwnProperty(index)) {
-            hideShowFieldset(index, 'hide');
+        for (var index in Drupal.settings.token_insert.tables) {
+          if (Drupal.settings.token_insert.tables.hasOwnProperty(index)) {
+            hideShowTable(index, 'hide');
           }
         }
       }
@@ -107,9 +114,9 @@
       var $content = $('<div>' + content + '</div>');
       // show the token_insert_text fieldset when wysiwyg is disabled
       if (typeof Drupal.settings.token_insert !== 'undefined') {
-        for (var index in Drupal.settings.token_insert.buttons) {
-          if (Drupal.settings.token_insert.buttons.hasOwnProperty(index)) {
-            hideShowFieldset(index, 'show');
+        for (var index in Drupal.settings.token_insert.tables) {
+          if (Drupal.settings.token_insert.tables.hasOwnProperty(index)) {
+            hideShowTable(index, 'show');
           }
         }
       }
@@ -128,16 +135,15 @@
     }
   };
 
-  Drupal.ajax.prototype.commands.tokenInsertTable = function (ajax, response, status) {
-    var $dialogdiv = $(response.selector);
+  Drupal.ajax.prototype.commands.tokenInsertTable = function (ajax, response, status) {    var $dialogdiv = $(response.selector);
     var instanceId = response.instance_id;
-    $dialogdiv.find('.token-insert-table .token-key').once('token-insert-table', function() {
-      var newThis = $('<a href="javascript:void(0);" title="' + Drupal.t('Insert this token into your form') + '">' + $(this).html() + '</a>').click(function(e){
-        e.preventDefault();
-        var token = $(this).text();
-        Drupal.wysiwyg.plugins.token_insert_wysiwyg.insertIntoEditor(token, instanceId);
-      });
-      $(this).html(newThis);
+    function insertToken (e) {
+      e.preventDefault();
+      var token = $(this).text();
+      Drupal.wysiwyg.plugins.token_insert_wysiwyg.insertIntoEditor(token, instanceId);
+    }
+    $dialogdiv.find('.token-insert-table').once('token-insert-table', function() {
+      $(this).delegate('.token-key a', 'click', insertToken);
     });
     var btns = {};
 
@@ -156,10 +162,12 @@
       dialogClass: 'jquery_ui_dialog-dialog',
       title: Drupal.t('Insert token'),
       buttons: btns,
-      width: 700
+      width: 700,
+      maxHeight: 450
     });
     $dialogdiv.css({maxHeight: 350});
     dialogs[instanceId] = $dialogdiv;
     $dialogdiv.dialog("open");
   };
+
 })(jQuery, Drupal);
