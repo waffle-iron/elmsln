@@ -1,0 +1,187 @@
+diff --git a/token_insert_ckeditor/plugins/token_insert_ckeditor/icons/tokeninsert.png b/token_insert_ckeditor/plugins/token_insert_ckeditor/icons/tokeninsert.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..d29aabf8cce3cfade94aeea94354d6e022a6c4a9
+GIT binary patch
+literal 643
+zcmV-}0(||6P)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;(K){{a7>y{D4^000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iyn=
+z2niC%IOzre00IL^L_t(I%Z-vvN*qxT$A9njW2PN&721`n=t?2$3CzMHxN?&-WRV->
+z06B#Vy@4XQ$OS^O4N*j+s3<~X&qw#GSCvJkJ2OH;3jR>kcm1o};o%`gQLLtvhGzB#
+zFy`W%YgNoTGeDhX+2^{hzlWkIR=xLM`~CjL%Y>$B5D}bn<ath(Wu0GDF|$uzMBauF
+zHh$+AEhdu*s!FfdV`XK9@pw#1sr8$4j()%Y!2_@7on1S<bB@_;#`^j?J3Bj!Mk8jk
+z87ZZ1JHWj6Spal-N5eUXsv;uY$gRG>g#!p?mKG{6$s#B1-m1D}^JbP*m6TG4=jUhc
+z@9&o;D9e(krzb>&#dr^-Iir{vDJ4XN-Q8Wbx3{|jdwYAVt*wz#Vlm!Nr_)(gRkWB)
+zCRA0$>FFsUgs#B#^)=_`=bgWWZ<?m5>zYM`5UA^#<Ktrh#^W(ZM@I|>1Dd8;j!h{^
+zOH7QhBQMW$E-x=RJ3Hg#<b<LqP*tYWX*XGxWq(LCGped$b90lMn;WjKu6TTW<lx|d
+zhldAlZ*RG{xZv*Yj?rjDS(d0OK}4+WDk5xcZ801UU;h5mY0I*tu4_bu5Mykgz_KiJ
+z`}_OdDu0ta&lwB`#27V*$j|vnoO8~+_paCL{j-3Xp{m3fzl0d$4^@4ysvm(@{GX_E
+d?wj}i-7oS!gxqq#dHnzY002ovPDHLkV1iEHCQbkV
+
+literal 0
+HcmV?d00001
+
+diff --git a/token_insert_ckeditor/plugins/token_insert_ckeditor/images/insert.png b/token_insert_ckeditor/plugins/token_insert_ckeditor/images/insert.png
+deleted file mode 100644
+index d29aabf8cce3cfade94aeea94354d6e022a6c4a9..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+HcmV?d00001
+
+literal 643
+zcmV-}0(||6P)<h;3K|Lk000e1NJLTq000mG000mO1^@s6AM^iV00001b5ch_0Itp)
+z=>Px#24YJ`L;(K){{a7>y{D4^000SaNLh0L01FcU01FcV0GgZ_00007bV*G`2iyn=
+z2niC%IOzre00IL^L_t(I%Z-vvN*qxT$A9njW2PN&721`n=t?2$3CzMHxN?&-WRV->
+z06B#Vy@4XQ$OS^O4N*j+s3<~X&qw#GSCvJkJ2OH;3jR>kcm1o};o%`gQLLtvhGzB#
+zFy`W%YgNoTGeDhX+2^{hzlWkIR=xLM`~CjL%Y>$B5D}bn<ath(Wu0GDF|$uzMBauF
+zHh$+AEhdu*s!FfdV`XK9@pw#1sr8$4j()%Y!2_@7on1S<bB@_;#`^j?J3Bj!Mk8jk
+z87ZZ1JHWj6Spal-N5eUXsv;uY$gRG>g#!p?mKG{6$s#B1-m1D}^JbP*m6TG4=jUhc
+z@9&o;D9e(krzb>&#dr^-Iir{vDJ4XN-Q8Wbx3{|jdwYAVt*wz#Vlm!Nr_)(gRkWB)
+zCRA0$>FFsUgs#B#^)=_`=bgWWZ<?m5>zYM`5UA^#<Ktrh#^W(ZM@I|>1Dd8;j!h{^
+zOH7QhBQMW$E-x=RJ3Hg#<b<LqP*tYWX*XGxWq(LCGped$b90lMn;WjKu6TTW<lx|d
+zhldAlZ*RG{xZv*Yj?rjDS(d0OK}4+WDk5xcZ801UU;h5mY0I*tu4_bu5Mykgz_KiJ
+z`}_OdDu0ta&lwB`#27V*$j|vnoO8~+_paCL{j-3Xp{m3fzl0d$4^@4ysvm(@{GX_E
+d?wj}i-7oS!gxqq#dHnzY002ovPDHLkV1iEHCQbkV
+
+diff --git a/token_insert_ckeditor/plugins/token_insert_ckeditor/plugin.js b/token_insert_ckeditor/plugins/token_insert_ckeditor/plugin.js
+index 4ebd9b8c170f2e67dc8a143d364828c14a491ee7..2e2a69809602e431f11fe385855ef73bed5b85e9 100644
+--- a/token_insert_ckeditor/plugins/token_insert_ckeditor/plugin.js
++++ b/token_insert_ckeditor/plugins/token_insert_ckeditor/plugin.js
+@@ -3,6 +3,8 @@
+ (function($) {
+   "use strict";
+   CKEDITOR.plugins.add('token_insert_ckeditor', {
++    requires: 'widget',
++    icons: 'TokenInsert',
+     init: function(editor) {
+       // Register a dialog box with CKEditor.
+       CKEDITOR.dialog.add('token_insert_ckeditor_dialog', function(editor) {
+@@ -19,12 +21,22 @@
+               elements: [{
+                 id: 'token_insert_ckeditor',
+                 type: 'html',
+-                html: '<div id="' + id + '" style="margin-left: 20px;"></div>'
++                html: '<div id="' + id + '" style="margin-left: 20px;"></div>',
++                commit: function (widget) {
++                  var dialog = this.getDialog();
++                  var token = dialog.token;
++                  widget.setData('token', token);
++                  $.post(Drupal.settings.basePath + 'token_replace/ajax/' + token, $('form').serialize(), function (result) {
++                    widget.setData('value', result.value);
++                    dialog.hide();
++                  }, 'json');
++                }
+               }]
+             }
+           ],
+           buttons: [CKEDITOR.dialog.cancelButton],
+           onShow: function () {
++            var dialog = this;
+             var editor = this.getParentEditor();
+             var id = 'token-insert-' + editor.id + '-dialog-container';
+             var $content = $(this.getElement('info_' + editor.id, 'token_insert_ckeditor').$);
+@@ -40,8 +52,8 @@
+                 var $token_link = $(this);
+                 var newThis = $('<a href="javascript:void(0);" title="' + Drupal.t('Insert this token into your form') + '">' + $token_link.html() + '</a>').click(function() {
+                   var $self = $(this);
+-                  editor.insertText($self.text());
+-                  CKEDITOR.dialog.getCurrent().hide();
++                  dialog.token = $self.text();
++                  dialog.fire('ok');
+                 });
+                 $token_link.html(newThis);
+               });
+@@ -50,13 +62,65 @@
+         };
+       });
+ 
+-      // Register a command with CKeditor to launch the dialog box.
+-      editor.addCommand('TokenInsert', new CKEDITOR.dialogCommand('token_insert_ckeditor_dialog'));
+-      // Add a button to the CKeditor that executes a CKeditor command.
+-      editor.ui.addButton('TokenInsert', {
+-        label: Drupal.t('Insert a token'),
+-        command: 'TokenInsert',
+-        icon: this.path + 'images/insert.png'
++      // Register a widget with CKEditor.
++      editor.widgets.add('TokenInsert', {
++        button: Drupal.t('Insert a token'),
++        dialog: 'token_insert_ckeditor_dialog',
++        template: '<span class="token-insert"></span>',
++        inline: true,
++        mask: true,
++
++        // Upcast; triggered when Wysiwyg is attached (on load, switch to rich
++        // text editor, etc).
++        //
++        // Determine if an element is part of this plugin instance.
++        upcast: function (element, data) {
++          console.log('TI');
++          if (element.name == 'span' && element.hasClass('token-insert')) {
++            data.token = element.getHtml();
++            data.upcast = true;
++            return true;
++          }
++
++          else {
++            var regex = new RegExp("(\\[.*?\\])", 'g');
++            if (element.getHtml().match(regex)) {
++              element.setHtml(element.getHtml().replace(regex, "<span class='token-insert'>$1</span>"));
++            }
++          }
++
++          return false;
++        },
++
++        // Data; Insert widget markup.
++        data: function () {
++          if (typeof this.data.value != 'undefined') {
++            this.element.setHtml(this.data.value);
++          }
++          else if (typeof this.data.token != 'undefined') {
++            this.element.setHtml(this.data.token);
++          }
++
++          // If this is an upcasted widget, get the value from cache or AJAX.
++          if (typeof this.data.upcast != 'undefined') {
++            delete this.data.upcast;
++            $.post(Drupal.settings.basePath + 'token_replace/ajax/' + this.data.token, $('form').serialize(), function (result) {
++              $.each(editor.widgets.instances, function () {
++                if (this.data.token == result.token) {
++                  this.setData('value', result.value);
++                }
++              });
++            }, 'json');
++          }
++        },
++
++        // Downcast; triggered when Wysiwyg is detached (prior to submit,
++        // Switch to rich text editor, etc).
++        //
++        // Transform widget markup into filter format.
++        downcast: function (widgetElement) {
++          return new CKEDITOR.htmlParser.text(this.data.token);
++        }
+       });
+     }
+   });
+diff --git a/token_insert_ckeditor/token_insert_ckeditor.info b/token_insert_ckeditor/token_insert_ckeditor.info
+index 07a3564d206bff0fe3df11e91f1ea31bc715e8ff..c135804dd303b878d58ece0b6f82e726b3bf0b3f 100644
+--- a/token_insert_ckeditor/token_insert_ckeditor.info
++++ b/token_insert_ckeditor/token_insert_ckeditor.info
+@@ -5,3 +5,4 @@ package = Token insert
+ dependencies[] = token
+ dependencies[] = ckeditor
+ dependencies[] = token_insert
++dependencies[] = token_replace_ajax
+diff --git a/token_insert_ckeditor/token_insert_ckeditor.module b/token_insert_ckeditor/token_insert_ckeditor.module
+index adb50a02bc0bbde303b0adbbe92549980d6eb5cc..bfc526dfb42f0ff126c3eaad0787ca9f97251b0b 100644
+--- a/token_insert_ckeditor/token_insert_ckeditor.module
++++ b/token_insert_ckeditor/token_insert_ckeditor.module
+@@ -32,7 +32,7 @@ function token_insert_ckeditor_ckeditor_plugin() {
+       'desc' => t('Token insert'),
+       'path' => drupal_get_path('module', 'token_insert_ckeditor') . '/plugins/token_insert_ckeditor/',
+       'buttons' => array('TokenInsert' => array(
+-        'icon' => 'images/insert.png',
++        'icon' => 'icons/tokeninsert.png',
+         'label' => 'Token insert',
+       )),
+     )
